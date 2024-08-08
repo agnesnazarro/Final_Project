@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('gadgets', function (Blueprint $table) {
             $table->id();
+            $table->string('brand_name');
+            $table->string('gadget_name');
+            $table->string('category');
+            $table->text('description');
+            $table->integer('quantity');
+            $table->date('purchase_date');
             $table->timestamps();
         });
     }
