@@ -13,7 +13,7 @@
 
             <div class="flex justify-end mb-4">
                 <a href="{{ route('gadgets.create') }}">
-                    <x-primary-button color="red">
+                    <x-primary-button class="bg-base-content">
                         {{ __('Add Gadget') }}
                     </x-primary-button>
                 </a>
@@ -30,30 +30,33 @@
                 <table class="w-full table-auto">
                     <thead>
                         <tr class="bg-gray-200 text-black dark:text-white dark:bg-gray-500">
-                            <th class="border px-4 py-2">{{ __('ID') }}</th>
-                            <th class="border px-4 py-2">{{ __('Brand Name') }}</th>
-                            <th class="border px-4 py-2">{{ __('Gadget Name') }}</th>
-                            <th class="border px-4 py-2">{{ __('Category') }}</th>
-                            <th class="border px-4 py-2">{{ __('Description') }}</th>
-                            <th class="border px-4 py-2">{{ __('Quantity') }}</th>
-                            <th class="border px-4 py-2">{{ __('Purchase Date') }}</th>
-                            <th class="border px-4 py-2">{{ __('Actions') }}</th>
+                            <th class="border border-gray-500 dark:border-gray-400 px-4 py-2">{{ __('ID') }}</th>
+                            <th class="border border-gray-500 dark:border-gray-400 px-4 py-2">{{ __('Brand Name') }}</th>
+                            <th class="border border-gray-500 dark:border-gray-400 px-4 py-2">{{ __('Gadget Name') }}</th>
+                            <th class="border border-gray-500 dark:border-gray-400 px-4 py-2">{{ __('Category') }}</th>
+                            <th class="border border-gray-500 dark:border-gray-400 px-4 py-2">{{ __('Description') }}</th>
+                            <th class="border border-gray-500 dark:border-gray-400 px-4 py-2">{{ __('Quantity') }}</th>
+                            <th class="border border-gray-500 dark:border-gray-400 px-4 py-2">{{ __('Purchase Date') }}</th>
+                            <th class="border border-gray-500 dark:border-gray-400 px-4 py-2">{{ __('Actions') }}</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($gadgets as $gadget)
                             <tr>
-                                <td class="border px-4 py-2 text-black dark:text-white">{{ $gadget->id }}</td>
-                                <td class="border px-4 py-2 text-black dark:text-white">{{ $gadget->brand_name }}</td>
-                                <td class="border px-4 py-2 text-black dark:text-white">{{ $gadget->gadget_name }}</td>
-                                <td class="border px-4 py-2 text-black dark:text-white">{{ $gadget->category }}</td>
-                                <td class="border px-4 py-2 text-black dark:text-white">{{ $gadget->description }}</td>
-                                <td class="border px-4 py-2 text-black dark:text-white">{{ $gadget->quantity }}</td>
-                                <td class="border px-4 py-2 text-black dark:text-white">{{ $gadget->purchase_date }}</td>
-                                <td class="border px-4 py-2">
-                                    <a href="{{ route('gadgets.edit', $gadget->id) }}" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
-                                        {{ __('Edit') }}
-                                    </a>
+                                <td class="border border-gray-500 px-4 py-2 text-black dark:text-white">{{ $gadget->id }}</td>
+                                <td class="border border-gray-500 px-4 py-2 text-black dark:text-white">{{ $gadget->brand_name }}</td>
+                                <td class="border border-gray-500 px-4 py-2 text-black dark:text-white">{{ $gadget->gadget_name }}</td>
+                                <td class="border border-gray-500 px-4 py-2 text-black dark:text-white">{{ $gadget->category }}</td>
+                                <td class="border border-gray-500 px-4 py-2 text-black dark:text-white">{{ $gadget->description }}</td>
+                                <td class="border border-gray-500 px-4 py-2 text-black dark:text-white">{{ $gadget->quantity }}</td>
+                                <td class="border border-gray-500 px-4 py-2 text-black dark:text-white">{{ $gadget->purchase_date }}</td>
+                                <td class="border border-gray-500 px-4 py-2">
+                                    <button 
+                                        onclick="window.location='{{ route('gadgets.edit', $gadget->id) }}'"
+                                        class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">
+                                            {{ __('Edit') }}
+                                    </button>
+
                                     <form action="{{ route('gadgets.destroy', $gadget->id) }}" method="POST" style="display:inline-block;">
                                         @csrf
                                         @method('DELETE')
