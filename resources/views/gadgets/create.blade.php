@@ -51,7 +51,7 @@
                 </div>
 
                 <div class="flex items-center gap-4 justify-end">
-                    <x-primary-button class="bg-green-600">{{ __('Add Gadget') }}</x-primary-button>
+                    <x-primary-button class="bg-green-600 hover:bg-green-700">{{ __('Add Gadget') }}</x-primary-button>
                 </div>
 
                 <div class="flex items-center gap-4 justify-end">
